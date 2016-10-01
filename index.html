@@ -5,34 +5,49 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>ElectricFieldSim</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   </head>
 
   <body onresize='resizeCanvas()'>
-    <div class="container">
+    <div id="container">
       <div id="click-field">
-       
+          
       </div>
-      <div class="menu">
+      <div id="options">
         <div class="row">
         <p></p>
-          <div class="col-xs-4 option" id='sign-option'>
-            Sign
+          <div class="col-xs-4 option" id='charge-options'>
+            Enter magnitude:
+            <input type="text" value="1" id="magnitude-box">
+            <p id="sign-prompt">Select sign:</p>
             <form id="sign-radio">
-              <input type="radio" name="sign" onclick="setSign(true)" checked>positive<br>
-              <input type="radio" name="sign" onclick="setSign(false)">negative<br>
+              <input type="radio" name="sign" onclick="setSign(true)" id="positive-radio" checked>positive<br>
+              <input type="radio" name="sign" onclick="setSign(false)" id="negative-radio">negative<br>
             </form>
           </div>
-          <div class="col-xs-4 option" id='magnitude-option'>
-            Magnitude
-            <p style="font-size:15px">Enter magnitude of charge:</p>
-            <input type="text" id="magnitude-box">
-            <button class="btn btn-success" style="margin:10px" id="magnitude-submit" onclick="setMagnitude()">Submit</button>
+          <div class="row col-xs-4 option" id='techy-options'>
+            
+            <div class='techy-half col-xs-6' id='techy-prompts'>
+              <p class='techy-prompt'>Scale:</p>
+              <p class='techy-prompt'>Step:</p>
+              <p class='techy-prompt'>Draw limit:</p>
+            </div>
+            <div class='techy-half col-xs-6' id='techy-boxes'>
+              <input type="text" value="4" class="techy-box" id="scale-box"><br>
+              <input type="text" value="10" class="techy-box" id="step-box"><br>
+              <input type="text" value="2000" class="techy-box" id="drawLimit-box"><br>
+            </div>
+            <button class='other-button btn btn-success' id='defaults-button' onclick='restoreDefaults()'>Restore defaults</button>
           </div>
-          <div class="col-xs-4 option" id='other-option'>
-            <button class="btn btn-success" id="reset-button" onclick="resetField()">Reset field!</button><br>
-            <button class="btn btn-danger" id="warning-button" onclick="warn()">A word of warning</button>
+          <div class="col-xs-4 option" id='other-options'>
+            <button class='btn btn-primary' id='about-button' onclick='displayAbout()'>About</button>
+            <button class='btn btn-success' id='refresh-button' onclick='refreshField()'>Refresh</button><br>
+            <button class="other-button btn btn-success" id="clear-button" onclick="clearField()">Clear field</button><br>
+            <button class="other-button btn btn-danger" id="warning-button" onclick="warn()">A word of warning</button>
           </div>
+          
         </div>
       </div>
     </div>
