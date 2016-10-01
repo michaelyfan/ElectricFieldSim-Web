@@ -1,4 +1,4 @@
-#ElectricFieldSim-Web
+#ElectricFieldSim-Web v2.0
 
 Web version of https://github.com/Orion-F/ElectricFieldSim
 
